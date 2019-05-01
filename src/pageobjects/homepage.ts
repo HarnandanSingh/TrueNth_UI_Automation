@@ -1,5 +1,4 @@
 import { Article, Title } from '../models/article';
-import WebdriverIO from '@wdio/mocha-framework';
 
 class Homepage {
     selectLifeChanges(lifeChange: String) {
@@ -13,8 +12,8 @@ class Homepage {
 
         for(var i=0; i < results.length; i++) {
             await new Promise(async resolve => {
-                let titleElement = await $(`a.results-item > p:nth-child(1)`);
-                let subtitleElement = await $(`a.results-item > p:nth-child(2)`);
+                let titleElement = await results[i].$(`p:nth-child(1)`);
+                let subtitleElement = await results[i].$(`p:nth-child(2)`);
 
                 let article = new Article();
                 let t = new Title();

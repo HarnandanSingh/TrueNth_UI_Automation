@@ -21,11 +21,12 @@
     "@wdio/mocha-framework": "^5.7.14",
     "@wdio/sync": "^5.7.13",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-polyfill": "^6.26.0",
-    "wdio-chromedriver-service": "^5.0.1"
+    "babel-polyfill": "^6.26.0"
   },
   "dependencies": {
-    "chromedriver": "^74.0.0",
-    "isomorphic-fetch": "^2.2.1"
+    "chromedriver": "^73.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "wdio-mocha-framework": "^0.6.4",
+    "webdriverio": "^4.14.4"
   }
 }

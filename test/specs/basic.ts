@@ -19,7 +19,10 @@ describe('Launch TrueNth site', function () {
         
         let pageArticles: Article[] = await Homepage.getResults();
 
-        assert.equal(apiArticles[0].title.title, pageArticles[0].title.title, "Title did not match.");
-        assert.equal(apiArticles[0].subtitle, pageArticles[0].subtitle, "Subtitle did not match.");
+        apiArticles.forEach((article, index) => {
+            assert.equal(article.title.title, pageArticles[index].title.title, "Title did not match.");
+            assert.equal(article.subtitle, pageArticles[index].subtitle, "Subtitle did not match.");
+            console.log("Asserted number " + index);
+        })
     });
 })
