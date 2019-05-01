@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tsc && environment=TEST ./node_modules/.bin/wdio wdio.conf.js"
+    "test": "tsc && environment=TEST country=GB ./node_modules/.bin/wdio wdio.conf.js"
   },
   "keywords": [],
   "author": "",

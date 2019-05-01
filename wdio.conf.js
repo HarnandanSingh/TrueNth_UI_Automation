@@ -216,8 +216,9 @@ exports.config = {
      * Function to be executed after a test (in Mocha/Jasmine) or a step (in Cucumber) starts.
      * @param {Object} test test details
      */
-    // afterTest: function (test) {
-    // },
+    afterTest: function (test) {
+        browser.saveScreenshot("./testResults/screenshot.png");
+    },
     /**
      * Hook that gets executed after the suite has ended
      * @param {Object} suite suite details

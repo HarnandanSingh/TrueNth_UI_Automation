@@ -6,8 +6,10 @@ export const Environment = {
 
     PROD: "https://truenth.org/",
 
+    GB: "en-gb",
+
     init: () => {
-        browser.url(Environment[process.env.environment] + "en-gb");
+        browser.url(Environment[process.env.environment] + Environment[process.env.country]);
     },
     
     getArticlesFromApi: async (lifeChange = '', treatment = '') => {
