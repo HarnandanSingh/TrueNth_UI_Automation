@@ -137,7 +137,11 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    // reporters: ['dot'],
+    reporters: [['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+    }]],
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -217,7 +221,10 @@ exports.config = {
      * @param {Object} test test details
      */
     afterTest: function (test) {
-        browser.saveScreenshot("./testResults/screenshot.png");
+        // browser.saveScreenshot("./testResults/screenshot.png");
+        if (test.error !== undefined) {
+            browser.takeScreenshot();
+        }
     },
     /**
      * Hook that gets executed after the suite has ended

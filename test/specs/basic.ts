@@ -22,7 +22,6 @@ describe('Launch TrueNth site', function () {
         apiArticles.forEach((article, index) => {
             assert.equal(article.title.title, pageArticles[index].title.title, "Title did not match.");
             assert.equal(article.subtitle, pageArticles[index].subtitle, "Subtitle did not match.");
-            console.log("Asserted number " + index);
         })
     });
 })
