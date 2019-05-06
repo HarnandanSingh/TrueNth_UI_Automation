@@ -13,8 +13,7 @@ export const Environment = {
     },
     
     getArticlesFromApi: async (lifeChange = '', treatment = '') => {
-        lifeChange = lifeChange === undefined ? '' : lifeChange;
-        treatment = treatment === undefined ? '' : treatment;
+
         return fetch(`https://truenth.org/en-gb/api/articles/?life_change=${lifeChange}&treatment=${treatment}`)
                 .then(response => {
                     return response.json().then(res => {
