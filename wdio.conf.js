@@ -60,7 +60,8 @@ exports.config = {
         'browser': 'Chrome',
         'browser_version': '73.0',
         'resolution': '1024x768',
-        'acceptSslCerts': true
+        'acceptSslCerts': true,
+        'browserstack.debug':true
     },
     {
         'os': 'Windows',
@@ -68,7 +69,8 @@ exports.config = {
         'browser': 'Firefox',
         'browser_version': '67.0 beta',
         'resolution': '1024x768',
-        'acceptSslCerts': true
+        'acceptSslCerts': true,
+        'browserstack.debug':true
       }
 ],
     //
