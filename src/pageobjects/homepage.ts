@@ -8,7 +8,10 @@ class Homepage {
     async getResults(): Promise<Article[]> {
         let articles: Article[] = [];
 
-        browser.pause(3000);
+        // At times the list of results does not get updated in time
+        // and the test picks up incorrect items, so adding a pause to
+        // ensure we always get an updated list of results
+        await browser.pause(2000);
 
         const results = await $$("a.results-item");
 
