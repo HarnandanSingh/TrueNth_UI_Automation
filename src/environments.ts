@@ -1,5 +1,4 @@
 import "isomorphic-fetch";
-import { Article } from './models/article';
 
 export const Environment = {
     TEST: "https://test.truenth.org/",
