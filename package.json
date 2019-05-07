@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tsc && environment=TEST country=GB ./node_modules/.bin/wdio wdio.conf.js"
+    "test:bs": "tsc && environment=TEST country=GB ./node_modules/.bin/wdio wdio.conf.js",
+    "test:local": "tsc && environment=TEST country=GB ./node_modules/.bin/wdio wdio.local.conf.js"
   },
   "keywords": [],
   "author": "",
