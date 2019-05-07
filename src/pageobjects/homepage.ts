@@ -5,6 +5,10 @@ class Homepage {
         $$(`button[data-value=${lifeChange}]`)[1].click();
     }
 
+    selectTreatment(treatment: String) {
+        $$(`button[data-value=${treatment}]`)[1].click();
+    }
+
     async getResults(): Promise<Article[]> {
         let articles: Article[] = [];
 

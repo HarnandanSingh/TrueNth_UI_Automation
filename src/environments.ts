@@ -17,6 +17,7 @@ export const Environment = {
         return fetch(`https://truenth.org/en-gb/api/articles/?life_change=${lifeChange}&treatment=${treatment}`)
                 .then(response => {
                     return response.json().then(res => {
+                        console.log(JSON.stringify(res));
                         let result: Article[] = JSON.parse(JSON.stringify(res));
                         return result;
                     });
