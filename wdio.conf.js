@@ -1,6 +1,10 @@
 exports.config = {
+    user: 'harnandansingh2',
+    key: 'jrPMpEdgUUzYqSth1hpM',
     // Override the default path of /wd/hub
-    path: '/',
+    // path: '/',
+    // host: 'hub-cloud.browserstack.com/wd/hub',
+    // path: "https://harnandansingh2:jrPMpEdgUUzYqSth1hpM@hub-cloud.browserstack.com/wd/hub",
     //
     // ====================
     // Runner Configuration
@@ -8,7 +12,7 @@ exports.config = {
     //
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
-    runner: 'local',
+    // runner: 'local',
     //
     // ==================
     // Specify Test Files
@@ -41,8 +45,8 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 1,
-    port: 9515,
+    // maxInstances: 1,
+    // port: 9515,
     // path: '/',
     //
     // If you have trouble getting all important capabilities together, check out the
@@ -50,30 +54,22 @@ exports.config = {
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [
-    //     {
-    //     // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-    //     // grid with only 5 firefox instances available you can make sure that not more than
-    //     // 5 instances get started at a time.
-    //     maxInstances: 1,
-    //     //
-    //     browserName: 'firefox',
-    //     // If outputDir is provided WebdriverIO can capture driver session logs
-    //     // it is possible to configure which logTypes to include/exclude.
-    //     // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-    //     // excludeDriverLogs: ['bugreport', 'server'],
-    // },
     {
-        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        // grid with only 5 firefox instances available you can make sure that not more than
-        // 5 instances get started at a time.
-        maxInstances: 1,
-        //
-        browserName: 'chrome',
-        // If outputDir is provided WebdriverIO can capture driver session logs
-        // it is possible to configure which logTypes to include/exclude.
-        // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-        // excludeDriverLogs: ['bugreport', 'server'],
-    }
+        'os': 'OS X',
+        'os_version': 'Mojave',
+        'browser': 'Chrome',
+        'browser_version': '73.0',
+        'resolution': '1024x768',
+        'acceptSslCerts': true
+    },
+    {
+        'os': 'Windows',
+        'os_version': '8.1',
+        'browser': 'Firefox',
+        'browser_version': '67.0 beta',
+        'resolution': '1024x768',
+        'acceptSslCerts': true
+      }
 ],
     //
     // ===================
@@ -106,7 +102,8 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    // baseUrl: 'http://localhost',
+    baseUrl: '',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 30000,
@@ -122,7 +119,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: ['chromedriver'],//
+    services: ['browserstack'],
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks.html
