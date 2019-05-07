@@ -1,4 +1,6 @@
 exports.config = {
+    debug: true,
+    execArgv: ['--inspect=127.0.0.1:5859'],
     // Override the default path of /wd/hub
     path: '/',
     //

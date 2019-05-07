@@ -8,18 +8,18 @@ export const Environment = {
 
     GB: "en-gb",
 
+    ArticlesApi: (lifeChange = '', treatment = '') => `https://truenth.org/en-gb/api/articles/?life_change=${lifeChange}&treatment=${treatment}`,
+
     init: () => {
         browser.url(Environment[process.env.environment] + Environment[process.env.country]);
     },
     
-    getArticlesFromApi: async (lifeChange = '', treatment = '') => {
+    getResponseFromApi: async (apiEndpoint) => {
 
-        return fetch(`https://truenth.org/en-gb/api/articles/?life_change=${lifeChange}&treatment=${treatment}`)
+        return fetch(apiEndpoint)
                 .then(response => {
                     return response.json().then(res => {
-                        console.log(JSON.stringify(res));
-                        let result: Article[] = JSON.parse(JSON.stringify(res));
-                        return result;
+                        return JSON.stringify(res);
                     });
                 });
     }

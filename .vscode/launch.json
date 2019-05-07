@@ -5,14 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug Tests",
+            "name": "Wdio Debugger",
             "type": "node",
             "request": "launch",
             "cwd": "${workspaceRoot}",
             "runtimeExecutable": "npm",
             "runtimeArgs": [
-                "run-script", "test"
-            ]
+                "run-script", "test:local"
+            ],
+            "port": 5859,
+            "protocol": "inspector", 
         },
         {
             "type": "node",

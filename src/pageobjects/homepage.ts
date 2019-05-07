@@ -1,16 +1,14 @@
 import { Article, Title } from '../models/article';
 
 class Homepage {
-    selectLifeChanges(lifeChange: String) {
-        $$(`button[data-value=${lifeChange}]`)[1].click();
-    }
-
-    selectTreatment(treatment: String) {
-        $$(`button[data-value=${treatment}]`)[1].click();
+    selectFilters(filters: String[]) {
+        filters.forEach(filter => $$(`button[data-value=${filter}]`)[1].click());
     }
 
     async getResults(): Promise<Article[]> {
         let articles: Article[] = [];
+
+        browser.pause(3000);
 
         const results = await $$("a.results-item");
 
