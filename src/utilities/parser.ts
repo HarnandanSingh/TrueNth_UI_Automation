@@ -5,7 +5,7 @@ export function parseJson<T>(data: string ){
     return result;
 }
 
-export function parseCsv(filePath: string) {
+export function parseCsv<T>(filePath: string) {
     let inputs = ["treatment", "agegp", "nonwhite", "livingwithpartner", "empstatuspredx"];
     
     let data = fs.readFileSync(filePath).toString();
@@ -35,5 +35,5 @@ export function parseCsv(filePath: string) {
         result.push(object);
     });
 
-    return JSON.stringify(result);
+    return <T>JSON.parse(JSON.stringify(result));
 }
