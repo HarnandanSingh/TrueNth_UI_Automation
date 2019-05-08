@@ -1,5 +1,5 @@
 
-import { parseCsv } from '../../src/utilities/parser';
+import { parseCsv } from '../utilities/parser';
 import { mappings } from '../dataFileMappings';
 
 describe('Verify results for selected filters', function () {
