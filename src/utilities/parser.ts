@@ -5,7 +5,7 @@ export function parseJson<T>(data: string ){
     return result;
 }
 
-export function parseCsv<T>(filePath: string) {
+export function parseCsv<T>(filePath: string, mappings) {
     let inputs = ["treatment", "agegp", "nonwhite", "livingwithpartner", "empstatuspredx"];
     
     let data = fs.readFileSync(filePath).toString();
@@ -26,7 +26,7 @@ export function parseCsv<T>(filePath: string) {
 
         values.forEach((value, index) => {
             if(inputs.includes(header.split(',')[index].trim())) {
-                object[header.split(',')[index]] = value === '99' ? null : value;
+                object[header.split(',')[index].trim()] = value === '99' ? null : mappings[header.split(',')[index].trim()](value);
             } else {
                 object["insights"][header.split(',')[index]] = value;
             }
