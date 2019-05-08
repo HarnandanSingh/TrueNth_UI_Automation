@@ -3,7 +3,7 @@
       "baseUrl": ".",
       "paths": {
         "*": [ "./*", "types/*" ],
-        "src/*": ["./src/*"]
+        "src/*": ["./src/*", "./test/*"]
     },
     "rootDir": "./", // to keep folder structure on compiling
     "types": ["node", "@wdio/sync", "@wdio/mocha-framework"],

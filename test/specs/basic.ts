@@ -1,16 +1,18 @@
-import { LifeChanges, Treatment } from '../../src/enums';
-import Homepage from '../../src/pageobjects/homepage';
+import { LifeChanges, Treatment } from '../enums';
+import Homepage from '../pageobjects/homepage';
 import * as assert from 'assert';
-import { Environment } from '../../src/environment';
+import { Browser } from '../../src/browser';
+import { Env } from '../envs';
 import { Api } from '../../src/api';
-import { Article } from '../../src/models/article';
+import { TestApi } from '../api';
+import { Article } from '../models/article';
 import { parseJson } from '../../src/utilities/parser';
 
 describe('Verify results for selected filters', function () {
 
     // Run setup before executing test steps
     before(function() {
-        Environment.init();
+        Browser.init(Env.getUrl());
     });
 
     it('Should display the correct articles list', async function() {
@@ -20,7 +22,7 @@ describe('Verify results for selected filters', function () {
         Homepage.selectFilters(filters);
 
         let apiResponse: string = await Api.getResponse(
-                                                        Api.Articles(
+                                                        TestApi.Articles(
                                                                 LifeChanges.SexAndIntimacy,
                                                                 Treatment.RadioTherapy)
                                                         );
