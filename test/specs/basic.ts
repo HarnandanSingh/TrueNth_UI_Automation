@@ -2,7 +2,7 @@ import { LifeChanges, Treatment } from '../enums';
 import Homepage from '../pageobjects/homepage';
 import * as assert from 'assert';
 import { Browser } from '../../src/browser';
-import { Env } from '../envs';
+import { Environment } from '../envs';
 import { Api } from '../../src/api';
 import { TestApi } from '../api';
 import { Article } from '../models/article';
@@ -12,7 +12,7 @@ describe('Verify results for selected filters', function () {
 
     // Run setup before executing test steps
     before(function() {
-        Browser.init(Env.getUrl());
+        Browser.init(Environment.getUrl());
     });
 
     it('Should display the correct articles list', async function() {
