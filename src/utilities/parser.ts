@@ -22,13 +22,13 @@ export function parseCsv(filePath: string) {
         let values = line.split(',');
 
         let object = {};
-        object["metadata"] = {};
+        object["insights"] = {};
 
         values.forEach((value, index) => {
             if(inputs.includes(header.split(',')[index].trim())) {
                 object[header.split(',')[index]] = value === '99' ? null : value;
             } else {
-                object["metadata"][header.split(',')[index]] = value;
+                object["insights"][header.split(',')[index]] = value;
             }
         });
 
