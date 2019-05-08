@@ -35,5 +35,5 @@ export function parseCsv(filePath: string) {
         result.push(object);
     });
 
-    return JSON.parse(JSON.stringify(result));
+    return JSON.stringify(result);
 }
