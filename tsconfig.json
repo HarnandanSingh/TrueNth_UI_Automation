@@ -3,7 +3,7 @@
       "baseUrl": ".",
       "paths": {
         "*": [ "./*", "types/*" ],
-        "src/*": ["./src/*", "./test/*"]
+        "src/*": ["./src/*", "./trueNth-tests/*"]
     },
     "rootDir": "./", // to keep folder structure on compiling
     "types": ["node", "@wdio/sync", "@wdio/mocha-framework"],
@@ -17,7 +17,7 @@
   },
   "include": [
     "src",
-    "test"
+    "trueNth-tests"
   ],
   "exclude": [
     "asyncAwait",
