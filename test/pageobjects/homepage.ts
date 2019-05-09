@@ -17,8 +17,8 @@ class Homepage {
 
         for(var i=0; i < results.length; i++) {
             await new Promise(async resolve => {
-                let titleElement = await results[i].$(`p:nth-child(1)`);
-                let subtitleElement = await results[i].$(`p:nth-child(2)`);
+                const titleElement = await results[i].$(`p:nth-child(1)`);
+                const subtitleElement = await results[i].$(`p:nth-child(2)`);
 
                 let article = new Article();
                 let t = new Title();

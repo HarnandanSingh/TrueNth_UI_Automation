@@ -17,19 +17,19 @@ describe('Verify results for selected filters', function () {
 
     it('Should display the correct articles list', async function() {
 
-        let filters: String[] = Array(LifeChanges.SexAndIntimacy, Treatment.RadioTherapy);
+        const filters: String[] = Array(LifeChanges.SexAndIntimacy, Treatment.RadioTherapy);
 
         Homepage.selectFilters(filters);
 
-        let apiResponse: string = await Api.getResponse(
+        const apiResponse: string = await Api.getResponse(
                                                         TestApi.Articles(
                                                                 LifeChanges.SexAndIntimacy,
                                                                 Treatment.RadioTherapy)
                                                         );
                                                         
-        let apiArticles: Article[] = parseJson<Article>(apiResponse);
+        const apiArticles: Article[] = parseJson<Article>(apiResponse);
                 
-        let pageArticles: Article[] = await Homepage.getResults();
+        const pageArticles: Article[] = await Homepage.getResults();
 
         apiArticles.forEach((article, index) => {
             assert.equal(pageArticles[index].title.title, article.title.title,

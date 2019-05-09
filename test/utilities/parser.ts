@@ -1,14 +1,14 @@
 import * as fs from 'fs';
 
 export function parseCsv(filePath: string, mappings) {
-    let inputs = ["treatment", "agegp", "nonwhite", "livingwithpartner", "empstatuspredx"];
+    const inputs = ["treatment", "agegp", "nonwhite", "livingwithpartner", "empstatuspredx"];
     
-    let data = fs.readFileSync(filePath).toString();
+    const data = fs.readFileSync(filePath).toString();
     let lines = data.split('\r\r');
 
     let result = [];
 
-    let header = lines[0];
+    const header = lines[0];
 
     lines = lines.splice(1, lines.length);
 
