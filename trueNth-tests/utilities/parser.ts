@@ -5,6 +5,7 @@ export function parseCsv(filePath: string, mappings) {
     
     const data = fs.readFileSync(filePath).toString();
     let lines = data.split('\r\r');
+    let insightIndex = 0;
 
     let result = [];
 
@@ -17,18 +18,25 @@ export function parseCsv(filePath: string, mappings) {
         let values = line.split(',');
 
         let object = {};
-        object["insights"] = {};
+        // object["insights"] = {};
 
         values.forEach((value, index) => {
             if(inputs.includes(header.split(',')[index].trim())) {
                 object[header.split(',')[index].trim()] = value === '99' ? null : mappings[header.split(',')[index].trim()](value);
             } else {
-                object["insights"][header.split(',')[index]] = value;
+                // object["insights"][header.split(',')[index].trim()] = value;
+                object[header.split(',')[index].trim()] = value;
             }
+
+            // add insight number as per the data file
+            object["insightIndex"] = insightIndex;
         });
 
         result.push(object);
+        insightIndex++;
     });
+
+    fs.writeFileSync("./parsed.json", JSON.stringify(result));
 
     return JSON.parse(JSON.stringify(result));
 }
