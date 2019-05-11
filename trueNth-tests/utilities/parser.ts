@@ -5,7 +5,6 @@ export function parseCsv(filePath: string, mappings) {
     
     const data = fs.readFileSync(filePath).toString();
     let lines = data.split('\r\r');
-    let insightIndex = 0;
 
     let result = [];
 
@@ -13,7 +12,7 @@ export function parseCsv(filePath: string, mappings) {
 
     lines = lines.splice(1, lines.length);
 
-    lines.forEach((line, i) => {
+    lines.forEach((line, lineIndex) => {
         line = line.replace('\'', '').replace('\n', '');
         let values = line.split(',');
 
@@ -29,11 +28,10 @@ export function parseCsv(filePath: string, mappings) {
             }
 
             // add insight number as per the data file
-            object["insightIndex"] = insightIndex;
+            object["insightIndex"] = lineIndex;
         });
 
         result.push(object);
-        insightIndex++;
     });
 
     fs.writeFileSync("./parsed.json", JSON.stringify(result));

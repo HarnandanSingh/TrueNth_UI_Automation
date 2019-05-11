@@ -6,6 +6,35 @@ export const mappings = {
     nonwhite: (value) => nonWhite[value]
 }
 
+export function map(parsed: {}) {
+    const inputs = ["treatment", "agegp", "nonwhite", "livingwithpartner", "empstatuspredx"];
+
+    let mapped = [];
+    const header = parsed["header"];
+    const insights = parsed["objects"];
+
+    insights.forEach((insight: Array<{}>, insightIndex: number) => {
+
+        let object = {};
+        const values: any = insight['values'];
+
+        values.forEach((value, index) => {
+            if(inputs.includes(header.split(',')[index].trim())) {
+                object[header.split(',')[index].trim()] = value === '99' ? null : mappings[header.split(',')[index].trim()](value);
+            } else {
+                object[header.split(',')[index].trim()] = value;
+            }
+
+            // add insight number as per the data file
+            object["insightIndex"] = insightIndex;
+        });
+
+        mapped.push(object);
+    });
+
+    return JSON.stringify(mapped);
+}
+
 const treatment = {
     '1': 'Surgery alone',
     '2': 'Brachytheray alone',
