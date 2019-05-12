@@ -4,7 +4,7 @@ import * as assert from 'assert';
 import { Browser } from '../../../src/browser';
 import { Environment } from '../../envs';
 import { Api } from '../../../src/api';
-import { TestApi } from '../../api';
+import { Articles } from '../../api';
 import { Article } from '../../models/article';
 import { parseJson } from '../../../src/utilities/parser';
 
@@ -21,11 +21,12 @@ describe('Verify results for selected filters', function () {
 
         Homepage.selectFilters(filters);
 
-        const apiResponse: string = await Api.getResponse(
-                                                        TestApi.Articles(
-                                                                LifeChanges.SexAndIntimacy,
-                                                                Treatment.RadioTherapy)
-                                                        );
+        const apiResponse: string = await Api.get(
+                                                    Articles(
+                                                        LifeChanges.SexAndIntimacy,
+                                                        Treatment.RadioTherapy
+                                                    )
+                                                );
                                                         
         const apiArticles: Article[] = parseJson<Article>(apiResponse);
                 

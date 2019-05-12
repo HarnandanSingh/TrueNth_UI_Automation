@@ -16,6 +16,8 @@ export function parseCsv(filePath: string, lineSeparator: string = '\r\r', value
 
     let objects: Array<{}> = new Array();
     
+    // Only keep lines 1 to n
+    // and exclude line 0 i.e. the header line
     lines = lines.splice(1, lines.length - 1);
     
     lines.forEach((line, index) => {
@@ -24,10 +26,7 @@ export function parseCsv(filePath: string, lineSeparator: string = '\r\r', value
 
         object['values'] = line.split(valueSeparator);
 
-        object['index'] = index;
-
         objects.push(object);
-        index++;
     });
 
     parsed["objects"] = objects;

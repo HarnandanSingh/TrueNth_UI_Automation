@@ -1,7 +1,7 @@
 import "isomorphic-fetch";
 
 export const Api = {
-    getResponse: async (apiEndpoint: string) => {
+    get: async (apiEndpoint: string) => {
 
         return fetch(apiEndpoint)
                 .then(async response => {
