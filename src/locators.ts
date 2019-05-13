@@ -1,6 +1,3 @@
-export const initialize = (url) => {
-    browser.url(url);
-}
 
 export const getElementsByClass = async (locator: string) => $$(`.${locator}`);
 

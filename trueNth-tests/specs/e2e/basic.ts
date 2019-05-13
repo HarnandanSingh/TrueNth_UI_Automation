@@ -1,7 +1,7 @@
 import { LifeChanges, Treatment } from '../../enums';
 import Homepage from '../../pageobjects/homepage';
 import * as assert from 'assert';
-import { initialize } from '../../../src/browser';
+import { initialize } from '../../../src/environment';
 import { Environment } from '../../envs';
 import { Api } from '../../../src/api';
 import { Articles } from '../../api';

@@ -12,6 +12,8 @@ class Homepage {
     async getResults(): Promise<Article[]> {
         let articles: Article[] = [];
 
+        await browser.pause(3000);
+
         const results = await $$("a.results-item");
 
         for(var i=0; i < results.length; i++) {
