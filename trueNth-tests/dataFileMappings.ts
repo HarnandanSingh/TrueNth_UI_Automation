@@ -20,7 +20,10 @@ export function map(parsed: {}) {
 
         values.forEach((value, index) => {
             if(inputs.includes(header.split(',')[index].trim())) {
-                object[header.split(',')[index].trim()] = value === '99' ? null : mappings[header.split(',')[index].trim()](value);
+                object[header.split(',')[index].trim()] = value === '99' ?  null : 
+                                                                            mappings[
+                                                                                header.split(',')[index].trim()
+                                                                            ](value);
             } else {
                 object[header.split(',')[index].trim()] = value;
             }
