@@ -6,5 +6,5 @@ export const Environment = {
 
     GB: "en-gb",
 
-    getUrl: () => Environment[process.env.environment] + Environment[process.env.country]
+    url: () => Environment[process.env.environment] + Environment[process.env.country]
 }

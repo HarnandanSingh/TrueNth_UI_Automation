@@ -12,7 +12,7 @@ describe('Verify results for selected filters', function () {
 
     // Run setup before executing test steps
     before(function() {
-        initialize(Environment.getUrl());
+        initialize(Environment.url());
     });
 
     it('Should display the correct articles list', async function() {
