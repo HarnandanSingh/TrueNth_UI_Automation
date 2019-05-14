@@ -13,7 +13,7 @@ export function map(parsed: {}) {
     const header = parsed["header"];
     const insights = parsed["objects"];
 
-    insights.forEach((insight: Array<{}>, insightIndex: number) => {
+    insights.forEach((insight: {}, insightIndex: number) => {
 
         let object = {};
         const values: any = insight['values'];
