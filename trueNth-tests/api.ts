@@ -1,10 +1,11 @@
+import { Environment } from './envs';
 
 /*
     Articles function - takes inputs to construct an endpoint
     and returns the endpoint to the caller.
 */
 export const Articles = (lifeChange = '', treatment = '') => 
-                            `https://truenth.org/en-gb/api/articles/?life_change=${lifeChange}&treatment=${treatment}`;
+                            `${Environment.url()}/api/articles/?life_change=${lifeChange}&treatment=${treatment}`;
 
 
 /*
