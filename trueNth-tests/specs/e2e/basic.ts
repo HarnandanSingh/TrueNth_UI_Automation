@@ -4,7 +4,7 @@ import * as assert from 'assert';
 import { initialize } from '../../../src/environment';
 import { Environment } from '../../envs';
 import { Api } from '../../../src/api';
-import { Articles } from '../../api';
+import { Articles } from '../../apiEndpoints';
 import { Article } from '../../models/article';
 import { parseJson } from '../../../src/utilities/parser';
 
