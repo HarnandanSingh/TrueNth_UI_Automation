@@ -4,15 +4,21 @@ class Homepage {
     selectFilters(filters: String[]) {
         filters.forEach(async filter => {
             await $$(`button[data-value=${filter}]`)[1].click();
-            const item = await $("a.results-item");
-            await item.waitForDisplayed(3000);
+            browser.waitUntil(() => this.waitForSpinner());
+            //const item = await $("a.results-item");
+            //await item.waitForDisplayed(3000);
         });
     }
 
+    waitForSpinner = () => {
+        const spinner = $(".spinner-wrapper");
+        return spinner.getAttribute("class") == "spinner-wrapper"
+    }
+   
     async getResults(): Promise<Article[]> {
         let articles: Article[] = [];
 
-        await browser.pause(3000);
+        // await browser.pause(3000);
 
         const results = await $$("a.results-item");
 
