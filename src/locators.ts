@@ -13,7 +13,7 @@ export const getElementsByClass = async (locator: string) => $$(`.${locator}`);
 *   @param  index       index number of the element
 *   return              web element
 */
-export const getElementsByClassAndIndex = async function (locator: string, index: number = 0) {
+export const getElementByClassAndIndex = async function (locator: string, index: number = 0) {
     let elements = await $$(`.${locator}`);
     return elements[index];
 }
