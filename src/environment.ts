@@ -3,6 +3,6 @@
 *
 *   @param  url     url to navigate to
 */
-export const initialize = (url) => {
+export const initialize = (url: string) => {
     browser.url(url);
 }

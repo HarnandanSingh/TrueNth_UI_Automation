@@ -3,6 +3,6 @@ export const LifeChanges = {
 };
 
 export const Treatment = {
-    Surgery: "",
+    Surgery: "surgery",
     RadioTherapy: "radiation"
 }

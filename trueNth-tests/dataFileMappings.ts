@@ -1,9 +1,9 @@
 export const mappings = {
-    treatment: (value) => treatment[value],
-    agegp: (value) => ageGp[value],
-    livingwithpartner: (value) => livingWithPartner[value],
-    empstatuspredx: (value) => employmentStatus[value],
-    nonwhite: (value) => nonWhite[value]
+    treatment: (value: string) => treatment[value],
+    agegp: (value: string) => ageGp[value],
+    livingwithpartner: (value: string) => livingWithPartner[value],
+    empstatuspredx: (value: string) => employmentStatus[value],
+    nonwhite: (value: string) => nonWhite[value]
 }
 
 export function map(parsed: {}) {
