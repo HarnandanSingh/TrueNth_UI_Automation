@@ -8,7 +8,7 @@ describe('Verify results for selected filters', function () {
 
     it('Should have the correct number of records', async function() {
 
-        const parsed = parseCsv("./trueNth-tests/dataFile.csv");
+        const parsed = parseCsv("./trueNth-tests/dataFile.csv", "\r\r");
         // fs.writeFileSync('./parsedJson.json', map(parsed));
 
         const results: [] = JSON.parse(map(parsed));
