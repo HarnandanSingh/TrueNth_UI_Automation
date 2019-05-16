@@ -13,4 +13,6 @@ export class Insight {
     epichormonal: string;
     sexact: string;
     eortcfatigue: string;
+    index: string;
+    sha: string;
 }

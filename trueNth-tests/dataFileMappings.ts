@@ -1,3 +1,5 @@
+var sha1 = require('js-sha1');
+
 export const mappings = {
     treatment: (value: string) => treatment[value],
     agegp: (value: string) => ageGp[value],
@@ -17,20 +19,33 @@ export function map(parsed: {}) {
 
         let object = {};
         const values: any = insight['values'];
+        let concatenatedValues = '';
+        let i: string = '';
 
-        values.forEach((value, index) => {
+        values.forEach((value: string, index: number) => {
             if(inputs.includes(header.split(',')[index].trim())) {
-                object[header.split(',')[index].trim()] = value === '99' ?  null : 
-                                                                            mappings[
-                                                                                header.split(',')[index].trim()
-                                                                            ](value);
+                let head = header.split(',')[index].trim();
+                object[head] = value === '99' ? 'null' : value;
+                
+                let j = '';
+                j = value === '99' ? 'N' : value;
+                j = index === 0 && j.length === 1 ? '0' + j : j;
+                i = i + j;
+                
+                // === '99' ?  null : 
+                // mappings[
+                //  header.split(',')[index].trim()
+                // ](value);
             } else {
                 object[header.split(',')[index].trim()] = value;
             }
 
-            // add insight number as per the data file
-            object["insightIndex"] = insightIndex;
+            let v = value === '99' ? 'null' : value;
+            concatenatedValues = concatenatedValues + v;
         });
+
+        object["index"] = i;
+        object['sha'] = sha1(concatenatedValues + object["index"]);
 
         mapped.push(object);
     });
