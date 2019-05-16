@@ -2,7 +2,7 @@ exports.config = {
     debug: true,
     execArgv: ['--inspect=127.0.0.1:5859'],
     // Override the default path of /wd/hub
-    path: '/',
+    path: 'http://localhost',
     //
     // ====================
     // Runner Configuration
@@ -46,7 +46,8 @@ exports.config = {
     // from the same test should run tests.
     //
     // maxInstances: 1,
-    port: 9515,
+    port: 4723,
+    // port: 9515,
     // path: '/',
     //
     // If you have trouble getting all important capabilities together, check out the
@@ -54,9 +55,17 @@ exports.config = {
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [
+    // {
+    //     browserName: "chrome",
+    // },
     {
-        browserName: "chrome",
-      }
+        "platformName": "iOS",
+        "platformVersion": "11.0",
+        "deviceName": "iPhone X",
+        "automationName": "XCUITest",
+        "browserName": "Chrome",
+        "orientation": "PORTRAIT",
+    }
 ],
     //
     // ===================
@@ -106,7 +115,8 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    // services: ['chromedriver', 'appium'],
+    services: ['appium'],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
