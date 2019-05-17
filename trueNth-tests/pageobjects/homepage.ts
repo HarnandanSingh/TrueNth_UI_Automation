@@ -1,13 +1,12 @@
 import { Article, Title } from '../models/article';
+import { Platform } from '../interfaces/platform';
 
-class Homepage {
+class Homepage extends Platform{
     selectFilters(filters: String[]) {
         filters.forEach(async filter => {
             await $$(`button[data-value=${filter}]`)[1].click();
             browser.waitUntil(() => this.waitForSpinner());
-            //const item = await $("a.results-item");
-            //await item.waitForDisplayed(3000);
-        });
+            });
     }
 
     waitForSpinner = () => {
@@ -17,8 +16,6 @@ class Homepage {
    
     async getResults(): Promise<Article[]> {
         let articles: Article[] = [];
-
-        // await browser.pause(3000);
 
         const results = await $$("a.results-item");
 
