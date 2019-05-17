@@ -1,5 +1,4 @@
-import "isomorphic-fetch";
-
+var request = require('sync-request');
 /*
 *   Calls an api endpoint
 *
@@ -7,13 +6,10 @@ import "isomorphic-fetch";
 *   return              valid JSON formatted string
 */
 export const Api = {
-    get: async (apiEndpoint: string): Promise<string> => {
+    get: (apiEndpoint: string): string => {
 
-        return fetch(apiEndpoint)
-                .then(async response => {
-                    return response.json().then(res => {
-                        return JSON.stringify(res);
-                    });
-                });
+        const result = request("GET", apiEndpoint);
+        console.log(result.getBody('utf8'));
+        return result.getBody('utf8');
     }
 }

@@ -7,7 +7,7 @@ import { Insight } from 'trueNth-tests/models/insight';
 
 describe('Verify results for selected filters', function () {
 
-    it('Should have the correct number of records', async function() {
+    it('Should have the correct number of records', function() {
 
         const parsed = parseCsv("./trueNth-tests/dataFile.csv", "\r\r");
 

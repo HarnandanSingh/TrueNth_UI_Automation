@@ -33,6 +33,7 @@
     "chromedriver": "^74.0.0",
     "isomorphic-fetch": "^2.2.1",
     "js-sha1": "^0.6.0",
+    "sync-request": "^6.1.0",
     "tslint": "^5.16.0",
     "wdio-mocha-framework": "^0.6.4",
     "webdriverio": "^5.8.2"
