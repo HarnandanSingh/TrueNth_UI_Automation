@@ -1,5 +1,7 @@
 import { LifeChanges, Treatment } from '../../enums';
 import Homepage from '../../pageobjects/homepage';
+import MobileHomepage from '../../pageobjects/homepage_mobile'
+import { Platform } from '../../interfaces/platform'
 import * as assert from 'assert';
 import { initialize } from '../../../src/environment';
 import { Environment } from '../../envs';
@@ -18,8 +20,19 @@ describe('Verify results for selected filters', function () {
     it('Should display the correct articles list', function() {
 
         const filters: String[] = Array(LifeChanges.SexAndIntimacy, Treatment.RadioTherapy);
+        
+        if (process.env.platform == "web") {
+            var platform: Platform = Homepage
+        } else {
+            var platform: Platform = MobileHomepage
+        }
+        // var platform: Platform = process.env.platform == "web" ? Homepage | MobileHomepage
 
-        Homepage.selectFilters(filters);
+        // platform.waitForCookieBanner()
+
+        // browser.pause(5000)
+
+        platform.selectFilters(filters);
 
         const apiResponse: string = Api.get(
                                                     Articles(
